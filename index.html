@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UltraVoice: Scaling Fine-Grained Style-Controlled Speech Conversations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo-section">
+                <img src="pics/logo.png" alt="UltraVoice Logo" class="logo">
+            </div>
+            <h1 class="title">UltraVoice: Scaling Fine-Grained Style-Controlled Speech Conversations for Spoken Dialogue Models</h1>
+            <div class="anonymous-note">
+                <i class="fas fa-user-secret"></i> Anonymous Submission
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Teaser Image -->
+            <section class="teaser-section">
+                <img src="pics/teasor.png" alt="UltraVoice Teaser" class="teaser-image">
+            </section>
+
+            <!-- Abstract -->
+            <section class="abstract-section">
+                <h2 class="section-title"><i class="fas fa-book"></i> Abstract</h2>
+                <div class="abstract-content">
+                    <p>
+                        Spoken dialogue models currently lack the ability for fine-grained speech style control, a critical capability for human-like interaction that is often overlooked in favor of purely functional capabilities like reasoning and question answering. To address this limitation, we introduce <strong>UltraVoice</strong>, the first large-scale speech dialogue dataset engineered for multiple fine-grained speech style control. Encompassing over 830 hours of speech dialogues, UltraVoice provides instructions across six key speech stylistic dimensions: emotion, speed, volume, accent, language, and composite styles. 
+                    </p>
+                    <p>
+                        Fine-tuning leading models such as SLAM-Omni and VocalNet on UltraVoice significantly enhances their fine-grained speech stylistic controllability without degrading core conversational abilities. Specifically, our fine-tuned models achieve improvements of 29.12-42.33% in Mean Opinion Score (MOS) and 14.61-40.09 percentage points in Instruction Following Rate (IFR) on multi-dimensional control tasks designed in the UltraVoice. Moreover, on the URO-Bench benchmark, our fine-tuned models demonstrate substantial gains in core understanding, reasoning, and conversational abilities, with average improvements of +10.84% on the Basic setting and +7.87% on the Pro setting. Furthermore, the dataset's utility extends to training controllable Text-to-Speech (TTS) models, underscoring its high quality and broad applicability for expressive speech synthesis.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Dataset Overview -->
+            <section class="overview-section">
+                <h2 class="section-title"><i class="fas fa-chart-pie"></i> Dataset Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                        <div class="stat-value">830+</div>
+                        <div class="stat-label">Hours of Speech</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-sliders-h"></i></div>
+                        <div class="stat-value">6</div>
+                        <div class="stat-label">Style Dimensions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-layer-group"></i></div>
+                        <div class="stat-value">23</div>
+                        <div class="stat-label">Sub-dimensions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                        <div class="stat-value">100K+</div>
+                        <div class="stat-label">Dialogues</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Style Dimensions -->
+            <section class="dimensions-section">
+                <h2 class="section-title"><i class="fas fa-microphone-alt"></i> Fine-Grained Style Control Dimensions</h2>
+                <p class="section-description">
+                    Explore our dataset's comprehensive coverage of speech style dimensions. Each dimension contains multiple sub-types with instruction-response pairs demonstrating fine-grained control.
+                </p>
+                
+                <div id="dimensions-container" class="dimensions-container">
+                    <!-- Dimensions will be dynamically loaded here -->
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 UltraVoice. Anonymous Submission for Academic Review.</p>
+        </div>
+    </footer>
+
+    <!-- Load embedded dataset first, then main scripts -->
+    <script src="src/data-embedded.js"></script>
+    <script src="src/data.js"></script>
+    <script src="src/main.js"></script>
+</body>
+</html>
+
