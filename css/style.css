@@ -42,8 +42,8 @@ body {
     border-bottom: 1px solid var(--border-color);
     padding: 3rem 0;
     text-align: center;
-    position: sticky;
-    top: 0;
+    position: static;
+    top: auto;
     z-index: 100;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
 }
@@ -124,7 +124,7 @@ section {
 }
 
 .teaser-image {
-    max-width: 100%;
+    max-width: var(--teaser-max-width, 100%);
     border-radius: 1rem;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     transition: transform 0.3s ease;
@@ -141,6 +141,20 @@ section {
     border-radius: 1rem;
     border: 1px solid var(--border-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Teaser figure + caption */
+.teaser-figure {
+    margin: 0 auto;
+    max-width: var(--teaser-max-width, 100%);
+}
+
+.teaser-caption {
+    margin-top: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: left;
 }
 
 .abstract-content p {
