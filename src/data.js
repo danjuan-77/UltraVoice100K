@@ -35,8 +35,23 @@ const DIMENSIONS_CONFIG = {
         gradient: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)',
         subtypes: ['chinese', 'korean', 'japanese']
     },
+    composite: {
+        name: 'Composite',
+        icon: '🎨',
+        description: 'Combined style dimensions',
+        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        subtypes: ['en']
+    },
+    // Legacy aliases for backward compatibility
     description: {
-        name: 'Combination',
+        name: 'Composite',
+        icon: '🎨',
+        description: 'Combined style dimensions',
+        gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        subtypes: ['en']
+    },
+    combination: {
+        name: 'Composite',
         icon: '🎨',
         description: 'Combined style dimensions',
         gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
@@ -44,11 +59,11 @@ const DIMENSIONS_CONFIG = {
     }
 };
 
-// Accent labels mapping
+// Accent labels mapping (consistent with paper)
 const ACCENT_LABELS = {
     'AU': 'Australia',
     'CA': 'Canada',
-    'GB': 'Great Britain',
+    'GB': 'United Kingdom',
     'IN': 'India',
     'SG': 'Singapore',
     'ZA': 'South Africa'
@@ -56,10 +71,15 @@ const ACCENT_LABELS = {
 
 // Function to format subtype name for display
 function formatSubtypeName(subtype, dimension) {
+    // Normalize dimension names
+    if (dimension === 'description' || dimension === 'combination') {
+        dimension = 'composite';
+    }
+    
     if (dimension === 'accent') {
         return ACCENT_LABELS[subtype.toUpperCase()] || subtype;
     }
-    if (dimension === 'description') {
+    if (dimension === 'composite') {
         return subtype === 'en' ? 'English' : subtype;
     }
     return subtype.charAt(0).toUpperCase() + subtype.slice(1);

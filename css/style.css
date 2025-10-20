@@ -169,6 +169,11 @@ section {
     font-weight: 600;
 }
 
+.abstract-content strong.highlight-result {
+    color: #ef4444;
+    font-weight: 700;
+}
+
 /* Stats Grid */
 .stats-grid {
     display: grid;
@@ -565,4 +570,318 @@ html {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #6366f1;
+}
+
+/* Comparison Table */
+.comparison-table-wrapper {
+    overflow-x: auto;
+    background: rgba(30, 41, 59, 0.6);
+    border-radius: 1rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+.comparison-table thead {
+    background: rgba(79, 70, 229, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.comparison-table th {
+    padding: 1.2rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-primary);
+    border-bottom: 2px solid var(--primary-color);
+    white-space: nowrap;
+}
+
+.comparison-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.3s ease;
+}
+
+.comparison-table tbody tr:hover {
+    background: rgba(79, 70, 229, 0.1);
+}
+
+.comparison-table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.comparison-table td {
+    padding: 1.5rem 1rem;
+    color: var(--text-secondary);
+    vertical-align: top;
+}
+
+.dimension-cell {
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: capitalize;
+    background: rgba(79, 70, 229, 0.15);
+    border-right: 3px solid var(--primary-color);
+    vertical-align: middle;
+    text-align: center;
+    font-size: 1rem;
+    min-width: 100px;
+    max-width: 120px;
+    padding: 1.5rem 0.6rem;
+}
+
+.subdimension-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(79, 70, 229, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.5rem;
+    color: #a5b4fc;
+    font-weight: 500;
+    text-transform: capitalize;
+    font-size: 0.9rem;
+}
+
+/* Sub-dimension column width */
+.comparison-table td:nth-child(2) {
+    min-width: 130px;
+    max-width: 150px;
+    padding: 1.5rem 0.6rem;
+}
+
+.audio-query-cell {
+    min-width: 220px;
+    width: auto;
+}
+
+.query-audio-wrapper {
+    background: rgba(51, 65, 85, 0.4);
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    position: relative;
+    cursor: help;
+    transition: all 0.3s ease;
+}
+
+.query-audio-wrapper:hover {
+    background: rgba(51, 65, 85, 0.6);
+    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+}
+
+.query-audio-wrapper audio {
+    width: 100%;
+    height: 35px;
+}
+
+/* Tooltip styles - default position (top) */
+.query-audio-wrapper[data-tooltip]::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: rgba(15, 23, 42, 0.95);
+    color: var(--text-secondary);
+    padding: 1rem 1.2rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--secondary-color);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-style: italic;
+    white-space: normal;
+    max-width: 400px;
+    min-width: 250px;
+    width: max-content;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1000;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.query-audio-wrapper[data-tooltip]::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 6px solid transparent;
+    border-top-color: var(--secondary-color);
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1001;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.query-audio-wrapper[data-tooltip]:hover::before {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-12px);
+}
+
+.query-audio-wrapper[data-tooltip]:hover::after {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-6px);
+}
+
+/* Tooltip bottom position (for top rows) */
+.query-audio-wrapper[data-tooltip].tooltip-bottom::before {
+    bottom: auto;
+    top: 100%;
+    transform: translateX(-50%) translateY(8px);
+}
+
+.query-audio-wrapper[data-tooltip].tooltip-bottom::after {
+    bottom: auto;
+    top: 100%;
+    transform: translateX(-50%) translateY(2px);
+    border-top-color: transparent;
+    border-bottom-color: var(--secondary-color);
+}
+
+.query-audio-wrapper[data-tooltip].tooltip-bottom:hover::before {
+    transform: translateX(-50%) translateY(12px);
+}
+
+.query-audio-wrapper[data-tooltip].tooltip-bottom:hover::after {
+    transform: translateX(-50%) translateY(6px);
+}
+
+.model-output-cell {
+    min-width: 220px;
+    width: auto;
+}
+
+.model-audio-wrapper {
+    background: rgba(51, 65, 85, 0.4);
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.model-audio-wrapper audio {
+    width: 100%;
+    height: 35px;
+}
+
+.base-model-badge {
+    display: inline-block;
+    background: rgba(239, 68, 68, 0.2);
+    color: #fca5a5;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.sft-model-badge {
+    display: inline-block;
+    background: rgba(16, 185, 129, 0.2);
+    color: #6ee7b7;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.3rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive Table */
+@media (max-width: 1200px) {
+    .comparison-table {
+        font-size: 0.85rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem 0.6rem;
+    }
+    
+    .dimension-cell {
+        font-size: 0.9rem;
+        min-width: 90px;
+        max-width: 110px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .comparison-table td:nth-child(2) {
+        min-width: 120px;
+        max-width: 140px;
+        padding: 1rem 0.5rem;
+    }
+    
+    .subdimension-cell {
+        font-size: 0.85rem;
+        gap: 0.25rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .audio-query-cell,
+    .model-output-cell {
+        min-width: 190px;
+    }
+    
+    /* Adjust tooltip for smaller screens */
+    .query-audio-wrapper[data-tooltip]::before {
+        max-width: 300px;
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .comparison-table-wrapper {
+        border-radius: 0.5rem;
+    }
+    
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.8rem 0.4rem;
+    }
+    
+    .dimension-cell {
+        font-size: 0.85rem;
+        min-width: 80px;
+        max-width: 100px;
+        padding: 0.8rem 0.4rem;
+    }
+    
+    .comparison-table td:nth-child(2) {
+        min-width: 110px;
+        max-width: 130px;
+        padding: 0.8rem 0.4rem;
+    }
+    
+    .subdimension-cell {
+        font-size: 0.8rem;
+        gap: 0.2rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .audio-query-cell,
+    .model-output-cell {
+        min-width: 160px;
+    }
+    
+    /* Adjust tooltip for mobile */
+    .query-audio-wrapper[data-tooltip]::before {
+        max-width: 250px;
+        min-width: 180px;
+        font-size: 0.8rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    /* Bottom tooltip adjustments for mobile */
+    .query-audio-wrapper[data-tooltip].tooltip-bottom::before {
+        max-width: 250px;
+        min-width: 180px;
+    }
 }

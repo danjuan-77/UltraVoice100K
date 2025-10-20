@@ -30,10 +30,10 @@
                 <h2 class="section-title"><i class="fas fa-book"></i> Abstract</h2>
                 <div class="abstract-content">
                     <p>
-                        Spoken dialogue models currently lack the ability for fine-grained speech style control, a critical capability for human-like interaction that is often overlooked in favor of purely functional capabilities like reasoning and question answering. To address this limitation, we introduce <strong>UltraVoice</strong>, the first large-scale speech dialogue dataset engineered for multiple fine-grained speech style control. Encompassing over 830 hours of speech dialogues, UltraVoice provides instructions across six key speech stylistic dimensions: emotion, speed, volume, accent, language, and composite styles. 
+                        Spoken dialogue models currently lack the ability for fine-grained speech style control, a critical capability for human-like interaction that is often overlooked in favor of purely functional capabilities like reasoning and question answering. To address this limitation, we introduce <strong>UltraVoice</strong>, the first large-scale speech dialogue dataset engineered for multiple fine-grained speech style control. Encompassing over <strong class="highlight-result">830 hours</strong> of speech dialogues, UltraVoice provides instructions across six key speech stylistic dimensions: emotion, speed, volume, accent, language, and composite styles. 
                     </p>
                     <p>
-                        Fine-tuning leading models such as SLAM-Omni and VocalNet on UltraVoice significantly enhances their fine-grained speech stylistic controllability without degrading core conversational abilities. Specifically, our fine-tuned models achieve improvements of 29.12-42.33% in Mean Opinion Score (MOS) and 14.61-40.09 percentage points in Instruction Following Rate (IFR) on multi-dimensional control tasks designed in the UltraVoice. Moreover, on the URO-Bench benchmark, our fine-tuned models demonstrate substantial gains in core understanding, reasoning, and conversational abilities, with average improvements of +10.84% on the Basic setting and +7.87% on the Pro setting. Furthermore, the dataset's utility extends to training controllable Text-to-Speech (TTS) models, underscoring its high quality and broad applicability for expressive speech synthesis.
+                        Fine-tuning leading models such as SLAM-Omni and VocalNet on UltraVoice significantly enhances their fine-grained speech stylistic controllability without degrading core conversational abilities. Specifically, our fine-tuned models achieve improvements of <strong class="highlight-result">29.12-42.33%</strong> in Mean Opinion Score (MOS) and <strong class="highlight-result">14.61-40.09</strong> percentage points in Instruction Following Rate (IFR) on multi-dimensional control tasks designed in the UltraVoice. Moreover, on the URO-Bench benchmark, our fine-tuned models demonstrate substantial gains in core understanding, reasoning, and conversational abilities, with average improvements of <strong class="highlight-result">+10.84%</strong> on the Basic setting and <strong class="highlight-result">+7.87%</strong> on the Pro setting. Furthermore, the dataset's utility extends to training controllable Text-to-Speech (TTS) models, underscoring its high quality and broad applicability for expressive speech synthesis.
                     </p>
                 </div>
             </section>
@@ -86,6 +86,31 @@
                 </div>
             </section>
 
+            <!-- Model Comparison -->
+            <section class="comparison-section">
+                <h2 class="section-title"><i class="fas fa-balance-scale"></i> Base Model vs. SFT Model Comparison</h2>
+                <p class="section-description">
+                    Compare the performance of the base model and the fine-tuned model on various style control tasks. The table below shows representative samples across different control dimensions.
+                </p>
+                
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Control Dimension</th>
+                                <th>Sub-Dimension</th>
+                                <th>Audio Query</th>
+                                <th>Base Model</th>
+                                <th>SFT Model</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-tbody">
+                            <!-- Comparison data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
         </div>
     </main>
 
@@ -96,10 +121,12 @@
         </div>
     </footer>
 
-    <!-- Load embedded dataset first, then main scripts -->
+    <!-- Load embedded datasets first, then main scripts -->
     <script src="src/data-embedded.js"></script>
+    <script src="src/comparison-data-embedded.js"></script>
     <script src="src/data.js"></script>
     <script src="src/main.js"></script>
+    <script src="src/comparison-data.js"></script>
 </body>
 </html>
 
